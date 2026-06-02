@@ -21,7 +21,6 @@
 
     .app-wrap { width: 100%; max-width: 780px; }
 
-    /* Header */
     .header { text-align: center; margin-bottom: 40px; }
     .eyebrow {
       font-size: 11px; font-weight: 500; letter-spacing: 3px;
@@ -35,8 +34,8 @@
 
     /* API Key Banner */
     .api-banner {
-      background: rgba(176,141,87,0.08);
-      border: 1px solid rgba(176,141,87,0.3);
+      background: rgba(66,133,244,0.07);
+      border: 1px solid rgba(66,133,244,0.25);
       border-radius: 12px;
       padding: 16px 20px;
       margin-bottom: 24px;
@@ -46,7 +45,7 @@
     }
     .api-banner-label {
       font-size: 10px; font-weight: 500; letter-spacing: 2px;
-      text-transform: uppercase; color: #b08d57;
+      text-transform: uppercase; color: #4285f4;
     }
     .api-row { display: flex; gap: 8px; }
     .api-input {
@@ -54,17 +53,18 @@
       border-radius: 8px; padding: 10px 14px; font-family: 'DM Sans', sans-serif;
       font-size: 13px; color: #f0ebe3; outline: none;
     }
-    .api-input:focus { border-color: #b08d57; }
+    .api-input:focus { border-color: #4285f4; }
     .api-save-btn {
-      padding: 10px 18px; background: rgba(176,141,87,0.15);
-      border: 1px solid #b08d57; border-radius: 8px; color: #d4aa6a;
+      padding: 10px 18px; background: rgba(66,133,244,0.12);
+      border: 1px solid #4285f4; border-radius: 8px; color: #7baaf7;
       font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 500;
       cursor: pointer; white-space: nowrap; transition: all 0.15s;
     }
-    .api-save-btn:hover { background: rgba(176,141,87,0.25); }
-    .api-hint { font-size: 11px; color: #4a4845; }
-    .api-hint a { color: #b08d57; text-decoration: none; }
+    .api-save-btn:hover { background: rgba(66,133,244,0.22); }
+    .api-hint { font-size: 11px; color: #4a4845; line-height: 1.6; }
+    .api-hint a { color: #7baaf7; text-decoration: none; }
     .api-hint a:hover { text-decoration: underline; }
+    .api-status { font-size: 11px; font-weight: 500; }
 
     /* Cards */
     .card {
@@ -77,10 +77,8 @@
       display: block;
     }
 
-    /* Grid row */
     .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
 
-    /* Fields */
     .field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 16px; }
     .field:last-child { margin-bottom: 0; }
     label { font-size: 12px; font-weight: 500; color: #8a8480; letter-spacing: 0.5px; }
@@ -94,7 +92,6 @@
     input[type="text"]::placeholder, textarea::placeholder { color: #3a3835; }
     input[type="text"]:focus, textarea:focus { border-color: #b08d57; }
 
-    /* Tone */
     .tone-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .tone-btn {
       padding: 9px 12px; border-radius: 8px; border: 1px solid #2a2825;
@@ -104,7 +101,6 @@
     .tone-btn:hover { border-color: #b08d57; color: #b08d57; }
     .tone-btn.active { border-color: #b08d57; background: rgba(176,141,87,0.1); color: #d4aa6a; }
 
-    /* Slider */
     .slider-wrap { display: flex; flex-direction: column; gap: 12px; }
     input[type="range"] {
       -webkit-appearance: none; appearance: none; width: 100%; height: 4px;
@@ -131,7 +127,6 @@
     .slider-tick.active .tick-label { color: #d4aa6a; }
     .slider-tick.active .tick-desc { color: #8a7050; }
 
-    /* Generate Button */
     .generate-btn {
       width: 100%; padding: 14px; background: #b08d57; border: none;
       border-radius: 10px; color: #0e0e0f; font-family: 'DM Sans', sans-serif;
@@ -142,14 +137,11 @@
     .generate-btn:hover:not(:disabled) { background: #c9a66a; transform: translateY(-1px); }
     .generate-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-    /* Error */
     .error-msg { font-size: 12px; color: #c97a6a; margin-bottom: 12px; text-align: center; }
 
-    /* Output */
     .output-card {
       background: #161618; border: 1px solid #2a2825; border-radius: 16px;
-      overflow: hidden; margin-top: 28px;
-      animation: fadeIn 0.4s ease;
+      overflow: hidden; margin-top: 28px; animation: fadeIn 0.4s ease;
     }
     @keyframes fadeIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
 
@@ -182,7 +174,6 @@
       40% { opacity: 1; transform: scale(1); }
     }
 
-    /* Hidden */
     .hidden { display: none !important; }
 
     @media (max-width: 540px) {
@@ -203,16 +194,17 @@
       <p class="subtitle">Craft the perfect email in seconds</p>
     </div>
 
-    <!-- API Key -->
+    <!-- Gemini API Key -->
     <div class="api-banner">
-      <span class="api-banner-label">🔑 Anthropic API Key</span>
+      <span class="api-banner-label">🔑 Google Gemini API Key (Free)</span>
       <div class="api-row">
-        <input class="api-input" type="password" id="apiKeyInput" placeholder="sk-ant-..." />
+        <input class="api-input" type="password" id="apiKeyInput" placeholder="Paste your Gemini API key here…" />
         <button class="api-save-btn" onclick="saveKey()">Save</button>
       </div>
       <p class="api-hint">
-        Your key is saved locally in your browser and never sent anywhere except Anthropic.
-        Get one free at <a href="https://console.anthropic.com" target="_blank">console.anthropic.com</a>
+        Your key is stored only in your browser. Get a <strong>free</strong> key (no credit card) at
+        <a href="https://aistudio.google.com/app/apikey" target="_blank">aistudio.google.com/app/apikey</a>
+        — sign in with Google → Create API Key → Copy &amp; paste above.
       </p>
     </div>
 
@@ -318,25 +310,28 @@
 
   <script>
     const lengthLabels = {
-      1: "very short (1–2 sentences body only)",
-      2: "short (3–4 sentences body)",
-      3: "medium length (2–3 paragraphs)",
-      4: "long and detailed (4–5 paragraphs)",
+      1: "very short (1-2 sentences body only)",
+      2: "short (3-4 sentences body)",
+      3: "medium length (2-3 paragraphs)",
+      4: "long and detailed (4-5 paragraphs)",
       5: "comprehensive and thorough (multiple detailed paragraphs)",
     };
 
     let currentTone = "Professional";
     let currentLength = 2;
 
-    // Load saved API key
     window.addEventListener('DOMContentLoaded', () => {
-      const saved = localStorage.getItem('anthropic_key');
+      const saved = localStorage.getItem('gemini_key');
       if (saved) document.getElementById('apiKeyInput').value = saved;
     });
 
     function saveKey() {
       const key = document.getElementById('apiKeyInput').value.trim();
-      if (key) { localStorage.setItem('anthropic_key', key); showError("API key saved!", "#4caf7d"); setTimeout(clearError, 2000); }
+      if (key) {
+        localStorage.setItem('gemini_key', key);
+        showMsg("API key saved!", "#4caf7d");
+        setTimeout(clearMsg, 2000);
+      }
     }
 
     function setTone(btn) {
@@ -360,24 +355,24 @@
       });
     }
 
-    function showError(msg, color = "#c97a6a") {
+    function showMsg(msg, color = "#c97a6a") {
       const el = document.getElementById('errorMsg');
       el.textContent = msg;
       el.style.color = color;
       el.classList.remove('hidden');
     }
-    function clearError() { document.getElementById('errorMsg').classList.add('hidden'); }
+    function clearMsg() { document.getElementById('errorMsg').classList.add('hidden'); }
 
     async function generateEmail() {
       const to = document.getElementById('to').value.trim();
       const from = document.getElementById('from').value.trim();
       const context = document.getElementById('context').value.trim();
       const message = document.getElementById('message').value.trim();
-      const apiKey = localStorage.getItem('anthropic_key') || document.getElementById('apiKeyInput').value.trim();
+      const apiKey = localStorage.getItem('gemini_key') || document.getElementById('apiKeyInput').value.trim();
 
-      if (!to || !from || !message) { showError("Please fill in To, From, and Message fields."); return; }
-      if (!apiKey) { showError("Please enter your Anthropic API key above."); return; }
-      clearError();
+      if (!to || !from || !message) { showMsg("Please fill in To, From, and Message fields."); return; }
+      if (!apiKey) { showMsg("Please enter your Gemini API key above."); return; }
+      clearMsg();
 
       const btn = document.getElementById('generateBtn');
       btn.disabled = true;
@@ -405,28 +400,25 @@ Details:
 Write only the email itself (Subject line, then the email body). Format it cleanly with "Subject:", then a blank line, then the email body. Do not include any explanation or commentary outside the email.`;
 
       try {
-        const res = await fetch("https://api.anthropic.com/v1/messages", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "x-api-key": apiKey,
-            "anthropic-version": "2023-06-01",
-            "anthropic-dangerous-direct-browser-access": "true"
-          },
-          body: JSON.stringify({
-            model: "claude-sonnet-4-20250514",
-            max_tokens: 1000,
-            messages: [{ role: "user", content: prompt }]
-          })
-        });
+        const res = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: { maxOutputTokens: 1000, temperature: 0.7 }
+            })
+          }
+        );
         const data = await res.json();
-        if (data.error) { showError("API error: " + data.error.message); return; }
-        const text = (data.content || []).map(b => b.text || "").join("");
+        if (data.error) { showMsg("API error: " + data.error.message); return; }
+        const text = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
         body.textContent = text;
         body.classList.remove('hidden');
         document.getElementById('copyBtn').classList.remove('hidden');
       } catch (err) {
-        showError("Something went wrong. Check your API key and try again.");
+        showMsg("Something went wrong. Check your API key and try again.");
       } finally {
         dots.classList.add('hidden');
         btn.disabled = false;
